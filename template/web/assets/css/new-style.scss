@@ -1,0 +1,256 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-extra-dark-green);
+  border-radius: 5px;
+}
+
+/* logo  */
+
+.main-logo{
+    .logo img{
+        width:334px;
+    }
+}
+/* navbar */
+header.main-header.header-style-three{
+    background-color: #1414148c;
+
+}
+/* Homepage book now */
+div.check-availability-two button{
+background-color: transparent;
+padding: 10px;
+width: 65%;
+border: 1px solid #ffffff;
+margin-inline: auto;
+display: block;
+}
+/* exolore button  */
+.link-box a.btn-style-one{
+    background-color: var(--color-dark-green);
+    color: #fff;
+
+}
+/* about us */
+.theme-color.bar_peepal{
+  font-size: 36px;
+}
+.sec-title.welcome-bar{
+  font-size: 26px;
+    line-height: 1;
+}
+.sec-title.about_title{
+  font-size: 40px;
+  color: var(--color-dark-green);
+}
+/* ota */
+.ota_wrapper .ota-child {
+    flex:0 1 110px;
+  }
+  /* footer */
+  .widget.contact-widget h4{
+    position:relative;
+      &:before{
+        position: absolute;
+        content: "";
+        width: 37px;
+        height: 1px;
+        bottom: -10px;
+        background-color: #ffffff;
+      }
+    }
+/* button get direction */
+
+.features_wrapper{
+  max-height: 565px;
+    overflow-y: auto;
+}
+.get_direction{
+  background-color: var(--color-extra-dark-green);
+  overflow: hidden;
+  width: 48%;
+  border-radius: 32px;
+  a{
+    color: #000000;
+    background: #dfdada;
+    padding: 10px;
+    font-size: 14px;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    width: 131px;
+   + p{
+font-size: 14px;
+    }
+  }
+}
+
+.text-limit{
+ height: 155px;
+  overflow-y: auto;
+}
+#myTab .nav-link{
+  position:relative;
+  &:before{
+    position:absolute;
+    content: "\f061";
+     font-family: 'Font Awesome 5 Pro';
+    right: 20px;
+  }
+  &.active{
+    color:#fff;
+  }
+}
+/* whatsapp */
+.whats_app {
+  position: fixed;
+  bottom: 20%;
+  z-index: 999;
+  right: 1%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.whats_app i {
+  color: #009688;
+}
+.footer-styling .contact-widget li i{
+    color: #fff;
+    padding-top: 6px;
+}
+.footer__icons li{
+  display: flex;
+}
+
+/* gallery */
+.filter-button-group button{
+  background:none;
+  padding:10px 15px;
+  transition: all .3s ease-in-out ;
+    &.active{
+      background-color:var(--color-dark-green);
+
+      color: #fff;
+    }
+  }
+  /* rooms package  & hall listing & dining*/
+  .image.room_listing_img img{
+    height: 306px;
+    object-fit:cover;
+  }
+  .image.room_listing_img.hall_listing_img img{
+    height: 392px;
+  }
+
+.text-two.text__limit{
+  max-width: 70%;
+  max-height: 100%;
+  height: 73px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text-two.text__limit.hall__text{
+  max-width: 100%;
+}
+.btn-style-four.hall_btn_styling{
+  margin-left: 29px;
+}
+.time_table {
+  margin-left:30px;
+  tbody tr{
+    font-size:15px;
+  }
+}
+.block-thirty-eight.dining_padding{
+  padding: 31px 30px 40px;
+}
+/* .section-thirty-eight .column__orders .row:nth-child(even){
+  flex-direction: row-reverse;
+} */
+/* Room details page */
+  .room_special{
+    background-color:#fbfbfb;
+    .pricing{
+      text-align:center;
+      h2{
+        color: #fff;
+        font-size:52px;
+        line-height:1;
+      }
+     background-color:var(--color-dark-green);
+      color: #fff;
+      font-size: 23px;
+      line-height: 1.8;
+    }
+  }
+
+.check-availability-two.inner_room_booking {
+  bottom: auto;
+    background: transparent;
+    form>ul>li h5{
+    color: #000;
+  }
+    input, li i.far{
+      color: #000;
+    }
+    button{
+      color: #fff;
+     background-color: #3c3c3c;
+    }
+    ul{
+      padding: 45px 41px 0 68px;
+    }
+  }
+  .room_sliders .owl-item .item img{
+    width: 100% !important;
+  }
+  /* hall details */
+  .hall_booking{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    a{
+      background: var(--color-dark-green);
+      color: #fff;
+      padding: 10px;
+    }
+  }
+  .table__bg_color.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #6f6e3eb0;
+    color:#fff;
+}
+
+/* menu list */
+.restaurant_info{
+  background: url("/assets/images/barpeepal/menu.png")  center  center no-repeat;
+ height:665px;
+ table{
+  top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+ }
+}
+/* menu list end */
+
+/* testimonial */
+.testimonials-section .text{
+  max-height:130px;
+  overflow-y:auto;
+  padding-right:30px;
+}

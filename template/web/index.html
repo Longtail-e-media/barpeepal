@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive File -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Color File -->
+    <link rel="stylesheet" href="assets/css/new-style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+          rel="stylesheet">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+<style>
+    #popout_img{
+    position: fixed;
+    width: 151px;
+    height:auto;
+    bottom: 10px;
+    left: 10px;
+    z-index:111;
+    display:none;
+
+}
+ #popout_img:hover{
+     cursor:pointer;
+ }
+ @media(max-width:575px){
+       #popout_img{
+           width:100px;
+       } 
+ }
+ 
+</style>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- preloader -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                    <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <jcms:module:header1/>
+        <!-- End Main Header -->
+
+        <!-- Banner Section -->
+        <section class="banner-section style-two mb-5 homepage_slider_image">
+            <div class="swiper-container banner-slider">
+                <div class="swiper-wrapper">
+                    <jcms:module:slideshow/>
+                </div>
+            </div>
+            <!-- Check availability two -->
+          
+            <jcms:module:booking-form/>
+        </section>
+        <!-- End Bnner Section -->
+
+        <!-- about us -->
+         <jcms:module:home_article2/>
+       
+
+        <!-- room and suites -->
+        
+        <jcms:module:home-accommodation/>
+        
+        <jcms:module:mservices:home/>
+        <!-- facilities -->
+        <jcms:module:facility-list-home/>
+
+        <!-- near by -->
+        <jcms:module:nearby-section/>
+
+        <!-- testimonials section -->
+         <jcms:module:testimonialList123/>
+        
+
+        <!-- Gallery Section -->
+        <jcms:module:galleryHome/>
+        <!-- ota -->
+                <section class="ota-section">
+                    <div class="py-5">
+                        <div class="ota_overflow">
+                            <div class="ota_wrapper d-flex gap-5 justify-content-lg-center overflow-auto">
+                                <jcms:module:otatop/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        <!--footer section  -->
+        <jcms:module:footer-booking2/>
+        <jcms:module:footer-whatsapp/>
+    </div>
+     <jcms:module:popup/>
+    <!--End pagewrapper-->
+    <img src="assets/images/barpeepal/popout.jpg" alt="" id="popout_img">
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up"></span></div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.min.js"></script>
+    <script src="assets/js/appear.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/scrollbar.js"></script>
+    <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/parallax-scroll.min.js"></script>
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/knob.min.js"></script>
+
+    <script src="assets/js/active.min.js"></script>
+    
+                        <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modal-popup-video").modal('show');
+            $('#modal-popup-video').on('hidden.bs.modal', function () {
+                $("#modal-popup-image").modal('show');
+                console.log("video closed")
+                $("#modal-popup-video iframe").attr("src", "");
+            });
+            $('#modal-popup-image').on('hidden.bs.modal', function () {
+                // $('.deals ,.D-prev ,.D-next').removeClass('d-none');
+            });
+            if ($('#modal-popup-video')[0]) {
+                $("#modal-popup-image").modal('hide');
+            } else {
+                $("#modal-popup-image").modal('show');
+            }
+            jQuery('.deals .close').on('click', function () {
+                jQuery('.deals ').addClass('d-none');
+            });
+            $('#offon').on('click', function () {
+                $('.deals ').toggleClass('d-none');
+            });
+        });
+    </script>
+    
+    
+    <script type="text/javascript">
+        // Initialize Check-In Datepicker
+        $("#checkin").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 0, // 0 days from today
+            onSelect: function (selectedDate) {
+                // Convert the selected date string to a Date object
+                var selected = new Date(selectedDate);
+
+                // Ensure it's a valid date
+                if (!isNaN(selected)) {
+                    // Add one day for the Check-Out date
+                    selected.setDate(selected.getDate() + 1);
+
+                    // Set the Check-Out Datepicker's minDate and date
+                    $("#checkout").datepicker("option", "minDate", selected);
+                    $("#checkout").datepicker("setDate", selected);
+                }
+            }
+        }).datepicker("setDate", new Date()); // Set Check-In to today's date
+
+        // Initialize Check-Out Datepicker
+        $("#checkout").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 1, // 1 day from today
+        });
+
+        // Set default Check-Out date to one day after today
+        var today = new Date();
+        today.setDate(today.getDate() + 1); // Add one day
+        $("#checkout").datepicker("setDate", today);
+    </script>
+    <script>
+        $(".nav-tabs .nav-link").click(function () {
+    const activeTab = $(".tab-content .tab-pane.active");
+    if (activeTab.length) {
+        activeTab.css('scroll-margin-top', '100px'); 
+        activeTab[0].scrollIntoView({ behavior: 'smooth' }); 
+    }
+});
+    </script>
+    <script>
+    setTimeout(()=>{
+    $("#popout_img").css("display","block");
+    },6000)
+    $(document).ready(function(){
+        $("#popout_img").click(function(){
+            $(this).fadeOut();
+        })
+    })
+</script>
+
+</body>
+
+</html>

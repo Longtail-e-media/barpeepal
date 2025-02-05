@@ -1,0 +1,405 @@
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-extra-dark-green);
+  border-radius: 5px;
+}
+
+/* logo  */
+.main-logo .logo img {
+  width:114px;
+}
+
+/* navbar */
+.fixed-header .main-logo .logo img {
+width: 83px;
+}
+.main-header.fixed-header .header-upper .logo-box .logo::after{
+top: 8px;
+left: 103px;
+background-size: 198px;
+width: 250px;
+}
+
+/* Homepage book now */
+div.check-availability-two button {
+  background-color: transparent;
+  padding: 10px;
+  width: 65%;
+  border: 1px solid #ffffff;
+  margin-inline: auto;
+  display: block;
+}
+
+/* exolore button  */
+.link-box a.btn-style-one {
+  background-color: var(--color-dark-green);
+  color: #fff;
+}
+
+/* about us */
+.theme-color.bar_peepal {
+  font-size: 36px;
+}
+
+.sec-title.welcome-bar {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.sec-title.about_title {
+  font-size: clamp(30px, 5vw, 40px);
+  color: var(--color-dark-green);
+}
+
+/* ota */
+.ota_wrapper .ota-child {
+  flex: 0 1 110px;
+}
+
+/* footer */
+.widget.contact-widget h4 {
+  position: relative;
+}
+.widget.contact-widget h4:before {
+  position: absolute;
+  content: "";
+  width: 37px;
+  height: 1px;
+  bottom: -10px;
+  background-color: #ffffff;
+}
+
+/* button get direction */
+.features_wrapper {
+  max-height: 565px;
+  overflow-y: auto;
+}
+
+.get_direction {
+  background-color: var(--color-extra-dark-green);
+  overflow: hidden;
+  width: 282px;
+  border-radius: 32px;
+}
+.get_direction a {
+  color: #000000;
+  background: #dfdada;
+  padding: 10px;
+  font-size: 14px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  width: 131px;
+}
+.get_direction a + p {
+  font-size: 14px;
+}
+
+.text-limit {
+  height: 155px;
+  overflow-y: auto;
+}
+
+#myTab .nav-link {
+  position: relative;
+}
+#myTab .nav-link:before {
+  position: absolute;
+  content: "\f061";
+  font-family: "Font Awesome 5 Pro";
+  right: 20px;
+}
+#myTab .nav-link.active {
+  color: #fff;
+}
+
+/* whatsapp */
+.whats_app {
+  position: fixed;
+  bottom: 20%;
+  z-index: 999;
+  right: 1%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.whats_app i {
+  color: #009688;
+}
+
+.footer-styling .contact-widget li i {
+  color: #fff;
+  padding-top: 6px;
+}
+
+.footer__icons li {
+  display: flex;
+}
+
+/* gallery */
+.filter-button-group {
+  overflow-x: auto;
+  padding-bottom: 10px;
+
+  &::-webkit-scrollbar {
+   height: 4px;
+  }
+}
+.filter-button-group button {
+  background: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+  flex: 1 0 auto;
+}
+.filter-button-group button.active {
+  background-color: var(--color-dark-green);
+  color: #fff;
+}
+
+/* rooms package  & hall listing & dining*/
+.image.room_listing_img img {
+  height: 306px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.image.room_listing_img.hall_listing_img img {
+  height: 392px;
+}
+
+.text-two.text__limit {
+  max-width: 70%;
+  max-height: 100%;
+  height: 73px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-two.text__limit.hall__text {
+  max-width: 100%;
+}
+
+.btn-style-four.hall_btn_styling {
+  margin-left: 29px;
+}
+.bottom-border.hall_booking + .row
+.col-md-12 .text__limit{
+    height:auto;
+    display:block;
+}
+.block-thirty-eight.dining_padding {
+  padding: 31px 30px 40px;
+}
+
+/* .section-thirty-eight .column__orders .row:nth-child(even){
+  flex-direction: row-reverse;
+} */
+/* Room details page */
+.room_special {
+  background-color: #fbfbfb;
+}
+.room_special .pricing {
+  text-align: center;
+  background-color: var(--color-dark-green);
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.room_special .pricing h2 {
+color: #fff;
+font-size: 52px;
+line-height: 1;
+padding-bottom: 8px;
+font-family: 'Roboto';
+}
+.text.other_rooms_text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    max-height: 7em;
+}
+
+.check-availability-two.inner_room_booking {
+  bottom: auto;
+  background: transparent;
+}
+.check-availability-two.inner_room_booking form > ul > li h5 {
+  color: #000;
+}
+.check-availability-two.inner_room_booking input, .check-availability-two.inner_room_booking li i.far {
+  color: #000;
+}
+.check-availability-two.inner_room_booking button {
+  color: #fff;
+  background-color: #3c3c3c;
+}
+.check-availability-two.inner_room_booking ul {
+  padding: 45px 41px 0 68px;
+}
+
+.section-thirty-nine.hall__slider .room_sliders {
+  height: 100vh !important;
+  overflow: hidden;
+}
+
+.room_sliders .owl-item .item img {
+  width: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.room_sliders.room_sliding_pkg img{
+    height:100vh !important;
+}
+
+/* hall details */
+.hall_booking {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hall_booking a {
+  background: var(--color-dark-green);
+  color: #fff;
+  padding: 10px;
+}
+
+.table__bg_color.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(111, 110, 62, 0.6901960784);
+  color: #fff;
+}
+
+.restaurant_info {
+  padding-top: 3rem;
+  color: white;
+  width: 80%;
+  margin-inline: auto;
+}
+.restaurant_info .col-md-3 {
+  text-align: center;
+  padding: 3rem 0 2.3rem;
+  position: relative;
+}
+.restaurant_info .col-md-3 img {
+  width: 54px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgb(255, 252, 252);
+  padding-bottom: 30px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(56deg) brightness(108%) contrast(101%);
+}
+.restaurant_info .col-md-3:not(:last-child):before {
+  position: absolute;
+  width: 2px;
+  height: 160px;
+  background-color: white;
+  content: "";
+  right: -1px;
+  z-index: 1;
+}
+.restaurant_info .col-md-3:nth-child(odd) {
+  background: #314619;
+}
+.restaurant_info .col-md-3:nth-child(even) {
+  background: #3E5622;
+}
+.restaurant_info h3 {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* menu list end */
+/* testimonial */
+.testimonials-section .text {
+  max-height: 130px;
+  overflow-y: auto;
+  padding-right: 30px;
+}
+
+/* popup */
+.book_date {
+  position: relative;
+}
+.book_date::before {
+  position: absolute;
+  background: url(../images/barpeepal/calendar.png) center no-repeat;
+  content: "";
+  width: 50px;
+  height: 50px;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.contact_information .text{
+  text-align:left;
+}
+.contact_information  h3{
+line-height:1.8;
+text-align:left !important;
+}
+.owl-carousel.owl-recreation img{
+width: 100% !important;
+}
+
+.offer.offer-item img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.offer.offer-item .details {
+  margin-top: 10px;
+}
+.offer__expire {
+  top: 0;
+  right:0;
+  z-index: 12;
+  background-color: #67672e;
+  padding: 5px 5px;
+  color: #fff;
+}
+#frm-booking .nice-select{
+line-height: 28px;
+width: 100%;
+}
+.share-social i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.share-social a {
+  color: #000;
+}
+.share-social .social-media-mgn a:first-child, .share-social .social-media-mgn a:nth-child(2) {
+
+background-color: #106aff;
+color: #fff;
+padding: 10px 27px;
+border-radius: 10px;
+}
+.share-social .social-media-mgn a:nth-child(2) {
+  background-color: #000;
+  margin-left: 10px;
+}

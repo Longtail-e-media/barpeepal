@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+    <!-- Responsive File -->
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
+    <link rel="stylesheet" href="assets/css/new-style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+<div class="page-wrapper">
+
+    <!-- preloader -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner"></div>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <jcms:module:header1/>
+    <!-- End Main Header -->
+
+    <!-- Page Title -->
+    <jcms:module:subpackage/>
+
+    <!--footer section  -->
+    <jcms:module:footer-booking2/>
+    <jcms:module:footer-whatsapp/>
+</div>
+
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up"></span></div>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/TweenMax.min.js"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/active.js"></script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="assets/js/jquery-validate.js"></script>
+
+<script type="text/javascript">
+    var base_url = jQuery('base').attr('url');
+
+    jQuery(document).ready(function () {
+        // Initialize Datepicker
+        $("#date").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 1, // 1 day from today
+        });
+
+        jQuery('#forHall').validate({
+            errorElement: 'span',
+            errorClass: 'validate-has-error',
+            rules: {
+                name: {required: true, minlength: 2},
+                email: {required: true, email: true},
+                contact: {required: true, number: true},
+                event: {required: true},
+                date: {required: true},
+                pax: {required: true, number: true},
+                message: {required: true}
+            },
+            messages: {
+                name: {required: "This field is required.", minlength: "Name must consist of at least 2 characters"},
+                email: {required: "This field is required.", email: "Enter Correct Email"},
+                contact: {required: "This field is required", number: "Enter valid phone number"},
+                event: {required: "This field is required"},
+                date: {required: "This field is required"},
+                pax: {required: "This field is required", number: "Enter valid number"},
+                message: {required: "This field is required"}
+            },
+            submitHandler: function (form) {
+                var recaptcha = $("#g-recaptcha-response").val();
+                if (recaptcha === "") {
+                    event.preventDefault();
+                    alert("Please check the recaptcha");
+                    return false;
+                }
+                var Frmval = jQuery("form#forHall").serialize();
+                jQuery("button#submit").attr("disabled", "true").html('Processing...');
+
+                jQuery.ajax({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: base_url + "enquery_mail.php",
+                    data: "action=hallEnquiry&" + Frmval,
+                    success: function (data) {
+                        var msg = eval(data);
+                        jQuery("button#submit").removeAttr("disabled").html('Submit');
+                        jQuery('div#result_msg').html(msg.message).css('display', 'block').addClass('alert alert-success').fadeOut(8000);
+                        jQuery("form#forHall")[0].reset();
+                    }
+                });
+                return false;
+            }
+        });
+    });
+
+    $(".owl-carousel.room_sliders").owlCarousel({
+        loop: true,
+        center: true,
+        autoplay: true,
+       smartSpeed: 1000,
+     autoplaySpeed: 1000,
+        margin: 10,
+        nav: true,
+        navText: [
+            '<i class="fas fa-chevron-left fa-2x text-white"></i>',
+            '<i class="fas fa-chevron-right fa-2x text-white"></i>',
+        ],
+        responsive: {
+            0: {items: 1,},
+            600: {items: 1,},
+            1000: {items: 1,},
+        },
+    }); 
+    $(".owl-carousel.other-rooms").owlCarousel({
+        loop: true,
+        autoplay: true,
+        margin: 20,
+        responsive: {
+            0: {items: 1,},
+            600: {items: 1,},
+            1000: {items: 2,},
+        },
+    });
+</script>
+<script type="text/javascript">
+    $("#checkin").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 0, // 0 days from today
+        onSelect: function (selectedDate) {
+            // Convert the selected date string to a Date object
+            var selected = new Date(selectedDate);
+
+            // Ensure it's a valid date
+            if (!isNaN(selected)) {
+                // Add one day for the Check-Out date
+                selected.setDate(selected.getDate() + 1);
+
+                // Set the Check-Out Datepicker's minDate and date
+                $("#checkout").datepicker("option", "minDate", selected);
+                $("#checkout").datepicker("setDate", selected);
+            }
+        }
+    }).datepicker("setDate", new Date()); // Set Check-In to today's date
+
+    // Initialize Check-Out Datepicker
+    $("#checkout").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 1, // 1 day from today
+    });
+
+    // Set default Check-Out date to one day after today
+    var today = new Date();
+    today.setDate(today.getDate() + 1); // Add one day
+    $("#checkout").datepicker("setDate", today);
+</script>
+  </body>
+</html>

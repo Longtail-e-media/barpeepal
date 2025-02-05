@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive File -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Color File -->
+    <link rel="stylesheet" href="assets/css/new-style.css">
+    <!--<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'>-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- preloader -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner"></div>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <jcms:module:header1/>
+    <!-- End Main Header -->
+    <!-- Site Main -->
+    <jcms:module:bookpkg_detail/>
+    <!-- Site Main End -->
+        <!-- social module -->
+        <jcms:module:fb-side />
+  <!--footer section  -->
+    <jcms:module:footer-booking2/>
+    <jcms:module:footer-whatsapp/>
+
+</div>
+<!--End pagewrapper-->
+
+    <!-- Scripts -->
+    
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up"></span></div>
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/TweenMax.min.js"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/jquery-validate.js"></script>
+<script src="assets/js/active.js"></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    
+    <!--<script src="assets/js/jquery-ui.min.js"></script>-->
+    <script>
+        var base_url = jQuery('base').attr('url');
+        // Package Booking form
+        if(jQuery("form#frm-booking")[0]) {
+
+            jQuery("form#frm-booking")[0].reset();
+            jQuery('input[name="no_pax[]"]').keyup(function () {
+                this.value = this.value.replace(/[^0-9\.]/g,'');
+            });
+            jQuery(document).on('change', 'input[name="multi_item[]"]', function() {
+    var _parent = jQuery(this).parents("tr.parent");
+    var multi_item = jQuery(this).val();
+
+    var result = multi_item.split('|');
+    if($(this).is(':checked')){
+        _parent.find('input[name="no_pax[]"]').prop('disabled',false);
+        _parent.find('input[name="no_pax[]"]').val('1');
+        _parent.find('.row_total').text(result[1]);
+        _parent.find('.row_hidden').val(result[1]);
+    }
+    else{
+        _parent.find('input[name="no_pax[]"]').prop('disabled',true);
+        _parent.find('input[name="no_pax[]"]').val('');
+        _parent.find('.row_total').text('');
+        _parent.find('.row_hidden').val('');
+    }
+    totalmultiamt();
+});
+jQuery(document).on('change', 'input[name="no_pax[]"]', function() {
+    var _parent = jQuery(this).parents("tr.parent");
+    var multi_price = _parent.find('input[name="multi_item[]"]').val();
+    var pax = jQuery(this).val();
+
+    var result = multi_price.split('|');
+
+    var e= parseFloat(result[1] * pax);
+    _parent.find('.row_total').text(e);
+    _parent.find('.row_hidden').val(e);
+    totalmultiamt();
+
+
+});
+
+            jQuery(document).on('blur', 'input[name="no_pax[]"]', function() {
+                var _parent = jQuery(this).parents("tr.parent");
+                var pax = jQuery(this).val();
+                var price =  _parent.find('input[name="package_price[]"]').val();
+                if(pax!='') {
+                    var totamt = (parseInt(pax)*parseInt(price));
+                    _parent.find('td.totalamt').html(totamt);
+                }else {
+                    _parent.find('td.totalamt').html(0);
+                }
+                totalpkgamt();
+            });
+
+            jQuery(document).on('change', 'select[name="no_pax[]"]', function() {
+                var _parent = jQuery(this).parents("tr.parent");
+                var pax = jQuery(this).val();
+                var price =  _parent.find('input[name="package_price[]"]').val();
+                var dis =  _parent.find('input[name="package_discount[]"]').val();
+                if(dis!=0){
+                    if(pax==1){
+                        var disamt = 0;
+
+                    }else{
+                        var disamt = (parseInt(price)*parseInt(pax)*parseInt(dis))/100;
+                    }
+                    jQuery('td.discountamt').html(disamt);
+                }
+                if(pax!='') {
+                    var totamt = (parseInt(pax)*parseInt(price));
+                    _parent.find('td.totalamt').html(totamt);
+                }else {
+                    _parent.find('td.totalamt').html(0);
+                }
+                totalpkgamt();
+            });
+
+            /*jQuery(document).on('change', 'select[name="no_pax[]"]', function() {
+                var _parent = jQuery(this).parents("tr.parent");
+                var pax = jQuery(this).val();
+                var price =  _parent.find('input[name="package_price[]"]').val();
+                var dis =  _parent.find('input[name="package_discount[]"]').val();
+                var child = _parent.find('select[name="no_child[]"]').val();
+                if(dis!=0){
+                    var disamt = (parseInt(price)*parseInt(pax)*parseInt(dis))/100;
+                    jQuery('td.discountamt').html(disamt);
+                }
+                if(child>0){
+                    pax = parseInt(pax) + parseInt(child);
+                    var disamt = (parseInt(price) * parseInt(pax) * parseInt(dis)) / 100;
+                    jQuery('td.discountamt').html(disamt);
+                }
+                if(pax!='') {
+                    var totamt = (parseInt(pax)*parseInt(price));
+                    _parent.find('td.totalamt').html(totamt);
+                }else {
+                    _parent.find('td.totalamt').html(0);
+                }
+                if(pax==3){
+                    _parent.find('select[name="no_child[]"]').prop('disabled', 'disabled');
+                }else{
+                    _parent.find('select[name="no_child[]"]').prop('disabled', false);
+                }
+                totalpkgamt();
+            });*/
+
+            /*jQuery(document).on('change', 'select[name="no_child[]"]', function() {
+                var _parent = jQuery(this).parents("tr.parent");
+                var pax = jQuery(this).val();
+                var price =  _parent.find('input[name="package_price[]"]').val();
+                var dis =  _parent.find('input[name="package_discount[]"]').val();
+                var adults = _parent.find('select[name="no_pax[]"]').val();
+                if (dis != 0) {
+                    var disamt = (parseInt(price) * parseInt(pax) * parseInt(dis)) / 100;
+                    jQuery('td.discountamt').html(disamt);
+                }
+                if(adults > 0){
+                    pax = parseInt(pax) + parseInt(adults);
+                    var disamt = (parseInt(price) * parseInt(pax) * parseInt(dis)) / 100;
+                    jQuery('td.discountamt').html(disamt);
+                }
+                if(pax!='') {
+                    var totamt = (parseInt(pax)*parseInt(price));
+                    _parent.find('td.totalamt').html(totamt);
+                }else {
+                    _parent.find('td.totalamt').html(0);
+                }
+                totalpkgamt();
+            });*/
+
+            jQuery('#person_checkin').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                minDate: '0',
+                maxDate: '+2Y'
+            });
+
+              jQuery("form#frm-booking").validate({
+                errorElement: 'span',
+                errorClass: 'validate-has-error',
+                rules: {
+                    radio_type:{ required: true},
+                    'no_pax[]': { required: true },
+                    'multi_item[]': { required: true },
+                    person_checkin: { required: true },
+                    person_first: { required: true },
+                    person_last: { required: true },
+                    person_contact: { required: true , number: true},
+                    person_email: { required: true, email: true },
+                    person_address: { required: true },
+                    person_country: { required: true },
+                    person_city: { required: true },
+                    // person_zpicode: { required: true },
+                    /*person_message: { required: true },*/
+                    userstring:{
+                        required:true,
+                        minlength:5,
+                        remote: {
+                            url: base_url+"captcha/checkcaptcha.php",
+                            type: "post"
+                        }
+                    }
+                },
+                messages:{
+                    radio_type: { required: 'Required !' },
+                    'no_pax[]': { required: 'Required !' },
+                    'multi_item[]': { required: 'Required !' },
+                    person_checkin: { required: "Date Required !" },
+        person_first: { required: "Required first name !" },
+        person_last: { required: "Required last name !" },
+        person_contact: { required: "Required contact no. !" },
+                     person_email: {
+          required: "Required email address",
+          email: "Required valid email address !",
+        },
+                    person_address: { required: "Required address !" },
+        person_country: { required: "Required country !" },
+        person_city: { required: "Required city !" },
+                    // person_zpicode: { required: 'Required !' },
+                    // userstring:{
+                    //     required: 'Required !',
+                    //     minlength: 'Security Code must be at least 5 characters',
+                    //     remote: "Security Code Not match"
+                    // }
+                },
+                submitHandler:function(form){
+                 var recaptcha = $("#g-recaptcha-response").val();
+                if (recaptcha === "") {
+                    event.preventDefault();
+                    alert("Please check the recaptcha");
+                    return false;
+                }
+                    var Frmval = $("form#frm-booking").serialize();
+                    $("#pay-btn").attr("disabled","true").text('Processing...');
+                    $.ajax({
+                        type: "POST",
+                        dataType:"JSON",
+                        url: base_url+"enquery_package.php",
+                        data:"action=bookingmail&"+Frmval,
+                        success:function(data){
+                            var msg=eval(data);
+                            $("#pay-btn").removeAttr("disabled").text('Submit');
+                            $('div#msg').html(msg.message).css('display','block').fadeOut(8000);
+                            setTimeout(function() {
+              window.location.reload();
+          },5000);
+                        }
+                    });
+                    return false;
+                  }
+            });
+        }
+        function totalpkgamt() {
+        var e = 0,d=0;
+        jQuery("form#frm-booking").find("td.totalamt").each(function() {
+            var a = jQuery(this).text();
+            e += parseFloat(a)
+        });
+        jQuery("form#frm-booking").find("td.discountamt").each(function() {
+            var a = jQuery(this).text();
+            d += parseFloat(a)
+        });
+        // var a = 10 * e / 100;
+        e = e - d;
+        jQuery("form#frm-booking").find(".grand-total").text(e);
+        jQuery("form#frm-booking").find('input[name="pay_amount"]').val(e);
+    }
+     function totalmultiamt() {
+        var e = 0,d=0;
+
+        $(".row_total").each(function(){
+            var stotal = jQuery(this).text();
+            if(stotal!=''){
+                e += parseFloat(stotal)
+            }
+            // console.log(e);
+        })
+        // var a = 10 * e / 100;
+        // e = e - d;
+        jQuery("form#frm-booking").find(".gtotal").text(e);
+        jQuery("form#frm-booking").find(".gtotal").val(e);
+        // jQuery("form#frm-booking").find('input[name="pay_amount"]').val(e);
+    }
+    </script>
+    <!-- Custom Scripts -->
+    <script src="js/custom.js"></script>
+</body>
+</html>
